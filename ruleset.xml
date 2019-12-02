@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ruleset>
+    <!-- Contributte Coding Standard -->
+    <rule ref="./vendor/ninjify/coding-standard/contributte.xml">
+		<exclude name="PSR2.Methods.FunctionCallSignature.MultipleArguments"/>
+	</rule>
+
+    <!-- Specific -->
+    <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+        <properties>
+            <property name="rootNamespaces" type="array" value="
+                src   => Nettrine\Extensions\Beberlei,
+                tests => Tests\Nettrine\Extensions\Beberlei,
+            "/>
+        </properties>
+    </rule>
+
+    <!--Exclude folders -->
+    <exclude-pattern>/tests/tmp</exclude-pattern>
+</ruleset>

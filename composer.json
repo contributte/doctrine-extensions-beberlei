@@ -1,0 +1,49 @@
+{
+  "name": "nettrine/extensions-beberlei",
+  "description": "Doctrine2 DQL functions for Nette Framework",
+  "keywords": ["nette", "doctrine", "orm", "database"],
+  "type": "library",
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/nettrine/extensions-beberlei",
+  "authors": [
+    {
+      "name": "Marek Bartoš",
+      "homepage": "https://github.com/mabar"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "beberlei/doctrineextensions": "^1.2",
+    "doctrine/orm": "^2.5.0",
+    "nette/di": "~3.0.0"
+  },
+  "require-dev": {
+    "ninjify/qa": "^0.10.0",
+    "phpstan/extension-installer": "^1.0",
+    "phpstan/phpstan-deprecation-rules": "^0.11",
+    "phpstan/phpstan-nette": "^0.11",
+    "phpstan/phpstan-shim": "^0.11",
+    "phpstan/phpstan-strict-rules": "^0.11",
+    "phpunit/phpunit": "^8.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nettrine\\Extensions\\Beberlei\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\Nettrine\\Extensions\\Beberlei\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    }
+  }
+}
