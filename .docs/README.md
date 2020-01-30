@@ -24,7 +24,7 @@ extensions:
 
 ## Configuration
 
-Specify same driver you use for doctrine dbal connection, all of [beberlei/DoctrineExtensions](https://github.com/beberlei/DoctrineExtensions) custom DQL functions for given driver will be registered.
+Specify the same driver as for the Doctrine DBAL connection, all of [beberlei/DoctrineExtensions](https://github.com/beberlei/DoctrineExtensions) custom DQL functions for the given driver will be registered.
 
 ```yaml
 nettrine.extensions.beberlei:
