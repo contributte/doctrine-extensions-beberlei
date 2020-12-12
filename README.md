@@ -1,6 +1,4 @@
-# Nettrine Extensions Beberlei
-
-Doctrine ([Beberlei/DoctrineExtensions](https://github.com/beberlei/DoctrineExtensions)) extension for Nette Framework
+# Nettrine Extensions KnpLabs
 
 [![Build Status](https://img.shields.io/travis/nettrine/extensions-beberlei.svg?style=flat-square)](https://travis-ci.org/nettrine/extensions-beberlei)
 [![Code coverage](https://img.shields.io/coveralls/nettrine/extensions-beberlei.svg?style=flat-square)](https://coveralls.io/r/nettrine/extensions-beberlei)
