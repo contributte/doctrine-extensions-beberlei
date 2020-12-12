@@ -1,8 +1,8 @@
 # Nettrine Extensions Beberlei
 
-Doctrine ([Beberlei/DoctrineExtensions](https://github.com/beberlei/DoctrineExtensions)) extension for Nette Framework
-
 ## Content
+
+Doctrine ([Beberlei/DoctrineExtensions](https://github.com/beberlei/DoctrineExtensions)) extension for Nette Framework
 
 - [Setup](#setup)
 - [Configuration](#configuration)
