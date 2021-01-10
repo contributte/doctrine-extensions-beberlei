@@ -10,7 +10,7 @@
         <properties>
             <property name="rootNamespaces" type="array" value="
                 src   => Nettrine\Extensions\Beberlei,
-                tests => Tests\Nettrine\Extensions\Beberlei,
+                tests/cases => Tests\Cases,
             "/>
         </properties>
     </rule>

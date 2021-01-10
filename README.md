@@ -1,50 +1,51 @@
-# Nettrine Extensions KnpLabs
+![](https://heatbadger.now.sh/github/readme/nettrine/extensions-beberlei/)
 
-[![Build Status](https://img.shields.io/travis/nettrine/extensions-beberlei.svg?style=flat-square)](https://travis-ci.org/nettrine/extensions-beberlei)
-[![Code coverage](https://img.shields.io/coveralls/nettrine/extensions-beberlei.svg?style=flat-square)](https://coveralls.io/r/nettrine/extensions-beberlei)
-[![Licence](https://img.shields.io/packagist/l/nettrine/extensions-beberlei.svg?style=flat-square)](https://packagist.org/packages/nettrine/extensions-beberlei)
-[![Downloads this Month](https://img.shields.io/packagist/dm/nettrine/extensions-beberlei.svg?style=flat-square)](https://packagist.org/packages/nettrine/extensions-beberlei)
-[![Downloads total](https://img.shields.io/packagist/dt/nettrine/extensions-beberlei.svg?style=flat-square)](https://packagist.org/packages/nettrine/extensions-beberlei)
-[![Latest stable](https://img.shields.io/packagist/v/nettrine/extensions-beberlei.svg?style=flat-square)](https://packagist.org/packages/nettrine/extensions-beberlei)
-[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+<p align=center>
+  <a href="https://github.com/nettrine/extensions-beberlei/actions"><img src="https://badgen.net/github/checks/nettrine/extensions-beberlei/master?cache=300"></a>
+  <a href="https://coveralls.io/r/nettrine/extensions-beberlei"><img src="https://badgen.net/coveralls/c/github/nettrine/extensions-beberlei?cache=300"></a>
+  <a href="https://packagist.org/packages/nettrine/extensions-beberlei"><img src="https://badgen.net/packagist/dm/nettrine/extensions-beberlei"></a>
+  <a href="https://packagist.org/packages/nettrine/extensions-beberlei"><img src="https://badgen.net/packagist/v/nettrine/extensions-beberlei"></a>
+</p>
+<p align=center>
+  <a href="https://packagist.org/packages/nettrine/extensions-beberlei"><img src="https://badgen.net/packagist/php/nettrine/extensions-beberlei"></a>
+  <a href="https://github.com/nettrine/extensions-beberlei"><img src="https://badgen.net/github/license/nettrine/extensions-beberlei"></a>
+  <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
+  <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
+  <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
+</p>
 
-## Discussion / Help
+<p align=center>
+Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
+</p>
 
-[![Join the chat](https://img.shields.io/gitter/room/nettrine/nettrine.svg?style=flat-square)](https://gitter.im/nettrine/nettrine)
+## Usage
 
-## Overview
+To install latest version of `nettrine/extensions-beberlei` use [Composer](https://getcomposer.com).
 
-- [Setup](.docs/README.md#setup)
-- [Configuration](.docs/README.md#configuration)
+```
+composer require nettrine/extensions-beberlei
+```
+
+## Documentation
+
+For details on how to use this package, check out our [documentation](.docs).
 
 ## Versions
 
-| State  | Version | Branch   | Nette  | PHP    |
-|--------|---------|----------|--------|--------|
-| dev    | `^0.2`  | `master` | `3.0+` | `^7.2` |
-| stable | `^0.1`  | `master` | `3.0+` | `^7.2` |
+| State       | Version | Branch   | Nette | PHP     |
+|-------------|---------|----------|-------|---------|
+| dev         | `^0.3`  | `master` | 3.0+  | `>=7.2` |
+| stable      | `^0.2`  | `master` | 3.0+  | `>=7.2` |
 
-## Maintainers
+## Development
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/f3l1x">
-            <img width="150" height="150" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=150">
-        </a>
-        </br>
-        <a href="https://github.com/f3l1x">Milan Felix Šulc</a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/mabar">
-            <img width="150" height="150" src="https://avatars0.githubusercontent.com/u/20974277?s=150&v=4">
-        </a>
-        </br>
-        <a href="https://github.com/mabar">Marek Bartoš</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+See [how to contribute](https://contributte.org) to this package. This package is currently maintained by these authors.
 
-Thank you for testing, reporting and contributing.
+<a href="https://github.com/f3l1x">
+    <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
+</a>
+
+-----
+
+Consider to [support](https://contributte.com/partners) **contributte** development team.
+Also thank you for using this package.
