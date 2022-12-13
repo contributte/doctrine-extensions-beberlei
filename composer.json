@@ -4,7 +4,7 @@
   "keywords": ["nette", "doctrine", "orm", "database"],
   "type": "library",
   "license": "MIT",
-  "homepage": "https://github.com/nettrine/extensions-beberlei",
+  "homepage": "https://github.com/contributte/doctrine-extensions-beberlei",
   "authors": [
     {
       "name": "Milan Felix Šulc",

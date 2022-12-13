@@ -1,14 +1,14 @@
-![](https://heatbadger.now.sh/github/readme/nettrine/extensions-beberlei/)
+![](https://heatbadger.now.sh/github/readme/contributte/doctrine-extensions-beberlei/)
 
 <p align=center>
-  <a href="https://github.com/nettrine/extensions-beberlei/actions"><img src="https://badgen.net/github/checks/nettrine/extensions-beberlei/master?cache=300"></a>
+  <a href="https://github.com/contributte/doctrine-extensions-beberlei/actions"><img src="https://badgen.net/github/checks/nettrine/extensions-beberlei/master?cache=300"></a>
   <a href="https://coveralls.io/r/nettrine/extensions-beberlei"><img src="https://badgen.net/coveralls/c/github/nettrine/extensions-beberlei?cache=300"></a>
   <a href="https://packagist.org/packages/nettrine/extensions-beberlei"><img src="https://badgen.net/packagist/dm/nettrine/extensions-beberlei"></a>
   <a href="https://packagist.org/packages/nettrine/extensions-beberlei"><img src="https://badgen.net/packagist/v/nettrine/extensions-beberlei"></a>
 </p>
 <p align=center>
   <a href="https://packagist.org/packages/nettrine/extensions-beberlei"><img src="https://badgen.net/packagist/php/nettrine/extensions-beberlei"></a>
-  <a href="https://github.com/nettrine/extensions-beberlei"><img src="https://badgen.net/github/license/nettrine/extensions-beberlei"></a>
+  <a href="https://github.com/contributte/doctrine-extensions-beberlei"><img src="https://badgen.net/github/license/contributte/doctrine-extensions-beberlei"></a>
   <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
   <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
   <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
