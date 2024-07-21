@@ -3,10 +3,128 @@
 namespace Nettrine\Extensions\Beberlei\DI;
 
 use Doctrine\ORM\Configuration;
-use DoctrineExtensions\Query\Mysql;
-use DoctrineExtensions\Query\Oracle;
-use DoctrineExtensions\Query\Postgresql;
-use DoctrineExtensions\Query\Sqlite;
+use DoctrineExtensions\Query\Mysql\Acos;
+use DoctrineExtensions\Query\Mysql\AddTime;
+use DoctrineExtensions\Query\Mysql\AesDecrypt;
+use DoctrineExtensions\Query\Mysql\AesEncrypt;
+use DoctrineExtensions\Query\Mysql\AnyValue;
+use DoctrineExtensions\Query\Mysql\Ascii;
+use DoctrineExtensions\Query\Mysql\Asin;
+use DoctrineExtensions\Query\Mysql\Atan;
+use DoctrineExtensions\Query\Mysql\Atan2;
+use DoctrineExtensions\Query\Mysql\Binary;
+use DoctrineExtensions\Query\Mysql\BitCount;
+use DoctrineExtensions\Query\Mysql\BitXor;
+use DoctrineExtensions\Query\Mysql\Cast;
+use DoctrineExtensions\Query\Mysql\Ceil;
+use DoctrineExtensions\Query\Mysql\CharLength;
+use DoctrineExtensions\Query\Mysql\Collate;
+use DoctrineExtensions\Query\Mysql\ConcatWs;
+use DoctrineExtensions\Query\Mysql\ConvertTz;
+use DoctrineExtensions\Query\Mysql\Cos;
+use DoctrineExtensions\Query\Mysql\Cot;
+use DoctrineExtensions\Query\Mysql\CountIf;
+use DoctrineExtensions\Query\Mysql\Crc32;
+use DoctrineExtensions\Query\Mysql\Date;
+use DoctrineExtensions\Query\Mysql\DateAdd;
+use DoctrineExtensions\Query\Mysql\DateDiff;
+use DoctrineExtensions\Query\Mysql\DateFormat;
+use DoctrineExtensions\Query\Mysql\DateSub;
+use DoctrineExtensions\Query\Mysql\Day;
+use DoctrineExtensions\Query\Mysql\DayName;
+use DoctrineExtensions\Query\Mysql\DayOfWeek;
+use DoctrineExtensions\Query\Mysql\DayOfYear;
+use DoctrineExtensions\Query\Mysql\Degrees;
+use DoctrineExtensions\Query\Mysql\Div;
+use DoctrineExtensions\Query\Mysql\Exp;
+use DoctrineExtensions\Query\Mysql\Extract;
+use DoctrineExtensions\Query\Mysql\Field;
+use DoctrineExtensions\Query\Mysql\FindInSet;
+use DoctrineExtensions\Query\Mysql\Floor;
+use DoctrineExtensions\Query\Mysql\Format;
+use DoctrineExtensions\Query\Mysql\FromUnixtime;
+use DoctrineExtensions\Query\Mysql\Greatest;
+use DoctrineExtensions\Query\Mysql\GroupConcat;
+use DoctrineExtensions\Query\Mysql\Hex;
+use DoctrineExtensions\Query\Mysql\Hour;
+use DoctrineExtensions\Query\Mysql\IfElse;
+use DoctrineExtensions\Query\Mysql\IfNull;
+use DoctrineExtensions\Query\Mysql\Inet6Aton;
+use DoctrineExtensions\Query\Mysql\Inet6Ntoa;
+use DoctrineExtensions\Query\Mysql\InetAton;
+use DoctrineExtensions\Query\Mysql\InetNtoa;
+use DoctrineExtensions\Query\Mysql\Instr;
+use DoctrineExtensions\Query\Mysql\IsIpv4;
+use DoctrineExtensions\Query\Mysql\IsIpv4Compat;
+use DoctrineExtensions\Query\Mysql\IsIpv4Mapped;
+use DoctrineExtensions\Query\Mysql\IsIpv6;
+use DoctrineExtensions\Query\Mysql\Lag;
+use DoctrineExtensions\Query\Mysql\LastDay;
+use DoctrineExtensions\Query\Mysql\Lead;
+use DoctrineExtensions\Query\Mysql\Least;
+use DoctrineExtensions\Query\Mysql\Log;
+use DoctrineExtensions\Query\Mysql\Log10;
+use DoctrineExtensions\Query\Mysql\Log2;
+use DoctrineExtensions\Query\Mysql\Lpad;
+use DoctrineExtensions\Query\Mysql\MakeDate;
+use DoctrineExtensions\Query\Mysql\MatchAgainst;
+use DoctrineExtensions\Query\Mysql\Md5;
+use DoctrineExtensions\Query\Mysql\Minute;
+use DoctrineExtensions\Query\Mysql\Month;
+use DoctrineExtensions\Query\Mysql\MonthName;
+use DoctrineExtensions\Query\Mysql\Now;
+use DoctrineExtensions\Query\Mysql\NullIf;
+use DoctrineExtensions\Query\Mysql\Over;
+use DoctrineExtensions\Query\Mysql\PeriodDiff;
+use DoctrineExtensions\Query\Mysql\Pi;
+use DoctrineExtensions\Query\Mysql\Power;
+use DoctrineExtensions\Query\Mysql\Quarter;
+use DoctrineExtensions\Query\Mysql\Radians;
+use DoctrineExtensions\Query\Mysql\Rand;
+use DoctrineExtensions\Query\Mysql\Regexp;
+use DoctrineExtensions\Query\Mysql\Replace;
+use DoctrineExtensions\Query\Mysql\Round;
+use DoctrineExtensions\Query\Mysql\Rpad;
+use DoctrineExtensions\Query\Mysql\Second;
+use DoctrineExtensions\Query\Mysql\SecToTime;
+use DoctrineExtensions\Query\Mysql\Sha1;
+use DoctrineExtensions\Query\Mysql\Sha2;
+use DoctrineExtensions\Query\Mysql\Sin;
+use DoctrineExtensions\Query\Mysql\Soundex;
+use DoctrineExtensions\Query\Mysql\Std;
+use DoctrineExtensions\Query\Mysql\StdDev;
+use DoctrineExtensions\Query\Mysql\StrToDate;
+use DoctrineExtensions\Query\Mysql\SubstringIndex;
+use DoctrineExtensions\Query\Mysql\Tan;
+use DoctrineExtensions\Query\Mysql\Time;
+use DoctrineExtensions\Query\Mysql\TimeDiff;
+use DoctrineExtensions\Query\Mysql\TimestampAdd;
+use DoctrineExtensions\Query\Mysql\TimestampDiff;
+use DoctrineExtensions\Query\Mysql\TimeToSec;
+use DoctrineExtensions\Query\Mysql\Unhex;
+use DoctrineExtensions\Query\Mysql\UnixTimestamp;
+use DoctrineExtensions\Query\Mysql\UtcTimestamp;
+use DoctrineExtensions\Query\Mysql\UuidShort;
+use DoctrineExtensions\Query\Mysql\Variance;
+use DoctrineExtensions\Query\Mysql\Week;
+use DoctrineExtensions\Query\Mysql\WeekDay;
+use DoctrineExtensions\Query\Mysql\Year;
+use DoctrineExtensions\Query\Mysql\YearMonth;
+use DoctrineExtensions\Query\Mysql\YearWeek;
+use DoctrineExtensions\Query\Oracle\Listagg;
+use DoctrineExtensions\Query\Oracle\Nvl;
+use DoctrineExtensions\Query\Oracle\ToChar;
+use DoctrineExtensions\Query\Oracle\ToDate;
+use DoctrineExtensions\Query\Oracle\Trunc;
+use DoctrineExtensions\Query\Postgresql\AtTimeZoneFunction;
+use DoctrineExtensions\Query\Postgresql\CountFilterFunction;
+use DoctrineExtensions\Query\Postgresql\DatePart;
+use DoctrineExtensions\Query\Postgresql\ExtractFunction;
+use DoctrineExtensions\Query\Postgresql\RegexpReplace;
+use DoctrineExtensions\Query\Postgresql\StringAgg;
+use DoctrineExtensions\Query\Sqlite\JulianDay;
+use DoctrineExtensions\Query\Sqlite\Random;
+use DoctrineExtensions\Query\Sqlite\StrfTime;
 use Nette\DI\CompilerExtension;
 use Nette\DI\Definitions\ServiceDefinition;
 use Nette\Schema\Expect;
@@ -23,10 +141,18 @@ final class BeberleiBehaviorExtension extends CompilerExtension
 	{
 		return Expect::structure([
 			'driver' => Expect::anyOf(
-				'mysql', 'mysql2', 'pdo_mysql', // mysql
-				'oci8', 'pdo_oci', // oracle
-				'sqlite', 'sqlite3', 'pdo_sqlite', // sqlite
-				'pgsql', 'postgres', 'postgresql', 'pdo_pgsql' // postgre
+				'mysql', // mysql
+				'mysql2',
+				'pdo_mysql',
+				'oci8', // oracle
+				'pdo_oci',
+				'sqlite',
+				'sqlite3', // sqlite
+				'pdo_sqlite',
+				'pgsql', // postgre
+				'postgres',
+				'postgresql',
+				'pdo_pgsql'
 			),
 		]);
 	}
@@ -104,125 +230,125 @@ final class BeberleiBehaviorExtension extends CompilerExtension
 	private function registerMysqlFunctions(ServiceDefinition $configurationDefinition): void
 	{
 		$datetimeFunctions = [
-			'addtime' => Mysql\AddTime::class,
-			'convert_tz' => Mysql\ConvertTz::class,
-			'date' => Mysql\Date::class,
-			'date_format' => Mysql\DateFormat::class,
-			'dateadd' => Mysql\DateAdd::class,
-			'datesub' => Mysql\DateSub::class,
-			'datediff' => Mysql\DateDiff::class,
-			'day' => Mysql\Day::class,
-			'dayname' => Mysql\DayName::class,
-			'dayofweek' => Mysql\DayOfWeek::class,
-			'dayofyear' => Mysql\DayOfYear::class,
-			'div' => Mysql\Div::class,
-			'from_unixtime' => Mysql\FromUnixtime::class,
-			'hour' => Mysql\Hour::class,
-			'last_day' => Mysql\LastDay::class,
-			'makedate' => Mysql\MakeDate::class,
-			'minute' => Mysql\Minute::class,
-			'now' => Mysql\Now::class,
-			'month' => Mysql\Month::class,
-			'monthname' => Mysql\MonthName::class,
-			'period_diff' => Mysql\PeriodDiff::class,
-			'second' => Mysql\Second::class,
-			'sectotime' => Mysql\SecToTime::class,
-			'strtodate' => Mysql\StrToDate::class,
-			'time' => Mysql\Time::class,
-			'timediff' => Mysql\TimeDiff::class,
-			'timestampadd' => Mysql\TimestampAdd::class,
-			'timestampdiff' => Mysql\TimestampDiff::class,
-			'timetosec' => Mysql\TimeToSec::class,
-			'week' => Mysql\Week::class,
-			'weekday' => Mysql\WeekDay::class,
-			'year' => Mysql\Year::class,
-			'yearmonth' => Mysql\YearMonth::class,
-			'yearweek' => Mysql\YearWeek::class,
-			'unix_timestamp' => Mysql\UnixTimestamp::class,
-			'utc_timestamp' => Mysql\UtcTimestamp::class,
-			'extract' => Mysql\Extract::class,
+			'addtime' => AddTime::class,
+			'convert_tz' => ConvertTz::class,
+			'date' => Date::class,
+			'date_format' => DateFormat::class,
+			'dateadd' => DateAdd::class,
+			'datesub' => DateSub::class,
+			'datediff' => DateDiff::class,
+			'day' => Day::class,
+			'dayname' => DayName::class,
+			'dayofweek' => DayOfWeek::class,
+			'dayofyear' => DayOfYear::class,
+			'div' => Div::class,
+			'from_unixtime' => FromUnixtime::class,
+			'hour' => Hour::class,
+			'last_day' => LastDay::class,
+			'makedate' => MakeDate::class,
+			'minute' => Minute::class,
+			'now' => Now::class,
+			'month' => Month::class,
+			'monthname' => MonthName::class,
+			'period_diff' => PeriodDiff::class,
+			'second' => Second::class,
+			'sectotime' => SecToTime::class,
+			'strtodate' => StrToDate::class,
+			'time' => Time::class,
+			'timediff' => TimeDiff::class,
+			'timestampadd' => TimestampAdd::class,
+			'timestampdiff' => TimestampDiff::class,
+			'timetosec' => TimeToSec::class,
+			'week' => Week::class,
+			'weekday' => WeekDay::class,
+			'year' => Year::class,
+			'yearmonth' => YearMonth::class,
+			'yearweek' => YearWeek::class,
+			'unix_timestamp' => UnixTimestamp::class,
+			'utc_timestamp' => UtcTimestamp::class,
+			'extract' => Extract::class,
 		];
 		$this->registerDatetimeFunctions($configurationDefinition, $datetimeFunctions);
 
 		$numericFunctions = [
-			'acos' => Mysql\Acos::class,
-			'asin' => Mysql\Asin::class,
-			'atan' => Mysql\Atan::class,
-			'atan2' => Mysql\Atan2::class,
-			'bit_count' => Mysql\BitCount::class,
-			'bit_xor' => Mysql\BitXor::class,
-			'ceil' => Mysql\Ceil::class,
-			'cos' => Mysql\Cos::class,
-			'cot' => Mysql\Cot::class,
-			'degrees' => Mysql\Degrees::class,
-			'exp' => Mysql\Exp::class,
-			'floor' => Mysql\Floor::class,
-			'log' => Mysql\Log::class,
-			'log10' => Mysql\Log10::class,
-			'log2' => Mysql\Log2::class,
-			'pi' => Mysql\Pi::class,
-			'power' => Mysql\Power::class,
-			'quarter' => Mysql\Quarter::class,
-			'radians' => Mysql\Radians::class,
-			'rand' => Mysql\Rand::class,
-			'round' => Mysql\Round::class,
-			'stddev' => Mysql\StdDev::class,
-			'sin' => Mysql\Sin::class,
-			'std' => Mysql\Std::class,
-			'tan' => Mysql\Tan::class,
-			'variance' => Mysql\Variance::class,
+			'acos' => Acos::class,
+			'asin' => Asin::class,
+			'atan' => Atan::class,
+			'atan2' => Atan2::class,
+			'bit_count' => BitCount::class,
+			'bit_xor' => BitXor::class,
+			'ceil' => Ceil::class,
+			'cos' => Cos::class,
+			'cot' => Cot::class,
+			'degrees' => Degrees::class,
+			'exp' => Exp::class,
+			'floor' => Floor::class,
+			'log' => Log::class,
+			'log10' => Log10::class,
+			'log2' => Log2::class,
+			'pi' => Pi::class,
+			'power' => Power::class,
+			'quarter' => Quarter::class,
+			'radians' => Radians::class,
+			'rand' => Rand::class,
+			'round' => Round::class,
+			'stddev' => StdDev::class,
+			'sin' => Sin::class,
+			'std' => Std::class,
+			'tan' => Tan::class,
+			'variance' => Variance::class,
 		];
 		$this->registerNumericFunctions($configurationDefinition, $numericFunctions);
 
 		$stringFunctions = [
-			'aes_decrypt' => Mysql\AesDecrypt::class,
-			'aes_encrypt' => Mysql\AesEncrypt::class,
-			'any_value' => Mysql\AnyValue::class,
-			'ascii' => Mysql\Ascii::class,
-			'binary' => Mysql\Binary::class,
-			'cast' => Mysql\Cast::class,
-			'char_length' => Mysql\CharLength::class,
-			'collate' => Mysql\Collate::class,
-			'concat_ws' => Mysql\ConcatWs::class,
-			'countif' => Mysql\CountIf::class,
-			'crc32' => Mysql\Crc32::class,
-			'degrees' => Mysql\Degrees::class,
-			'field' => Mysql\Field::class,
-			'find_in_set' => Mysql\FindInSet::class,
-			'format' => Mysql\Format::class,
-			'greatest' => Mysql\Greatest::class,
-			'group_concat' => Mysql\GroupConcat::class,
-			'hex' => Mysql\Hex::class,
-			'ifelse' => Mysql\IfElse::class,
-			'ifnull' => Mysql\IfNull::class,
-			'inet_aton' => Mysql\InetAton::class,
-			'inet_ntoa' => Mysql\InetNtoa::class,
-			'inet6_aton' => Mysql\Inet6Aton::class,
-			'inet6_ntoa' => Mysql\Inet6Ntoa::class,
-			'instr' => Mysql\Instr::class,
-			'is_ipv4' => Mysql\IsIpv4::class,
-			'is_ipv4_compat' => Mysql\IsIpv4Compat::class,
-			'is_ipv4_mapped' => Mysql\IsIpv4Mapped::class,
-			'is_ipv6' => Mysql\IsIpv6::class,
-			'lag' => Mysql\Lag::class,
-			'lead' => Mysql\Lead::class,
-			'least' => Mysql\Least::class,
-			'lpad' => Mysql\Lpad::class,
-			'match' => Mysql\MatchAgainst::class,
-			'md5' => Mysql\Md5::class,
-			'nullif' => Mysql\NullIf::class,
-			'over' => Mysql\Over::class,
-			'radians' => Mysql\Radians::class,
-			'regexp' => Mysql\Regexp::class,
-			'replace' => Mysql\Replace::class,
-			'rpad' => Mysql\Rpad::class,
-			'sha1' => Mysql\Sha1::class,
-			'sha2' => Mysql\Sha2::class,
-			'soundex' => Mysql\Soundex::class,
-			'str_to_date' => Mysql\StrToDate::class,
-			'substring_index' => Mysql\SubstringIndex::class,
-			'unhex' => Mysql\Unhex::class,
-			'uuid_short' => Mysql\UuidShort::class,
+			'aes_decrypt' => AesDecrypt::class,
+			'aes_encrypt' => AesEncrypt::class,
+			'any_value' => AnyValue::class,
+			'ascii' => Ascii::class,
+			'binary' => Binary::class,
+			'cast' => Cast::class,
+			'char_length' => CharLength::class,
+			'collate' => Collate::class,
+			'concat_ws' => ConcatWs::class,
+			'countif' => CountIf::class,
+			'crc32' => Crc32::class,
+			'degrees' => Degrees::class,
+			'field' => Field::class,
+			'find_in_set' => FindInSet::class,
+			'format' => Format::class,
+			'greatest' => Greatest::class,
+			'group_concat' => GroupConcat::class,
+			'hex' => Hex::class,
+			'ifelse' => IfElse::class,
+			'ifnull' => IfNull::class,
+			'inet_aton' => InetAton::class,
+			'inet_ntoa' => InetNtoa::class,
+			'inet6_aton' => Inet6Aton::class,
+			'inet6_ntoa' => Inet6Ntoa::class,
+			'instr' => Instr::class,
+			'is_ipv4' => IsIpv4::class,
+			'is_ipv4_compat' => IsIpv4Compat::class,
+			'is_ipv4_mapped' => IsIpv4Mapped::class,
+			'is_ipv6' => IsIpv6::class,
+			'lag' => Lag::class,
+			'lead' => Lead::class,
+			'least' => Least::class,
+			'lpad' => Lpad::class,
+			'match' => MatchAgainst::class,
+			'md5' => Md5::class,
+			'nullif' => NullIf::class,
+			'over' => Over::class,
+			'radians' => Radians::class,
+			'regexp' => Regexp::class,
+			'replace' => Replace::class,
+			'rpad' => Rpad::class,
+			'sha1' => Sha1::class,
+			'sha2' => Sha2::class,
+			'soundex' => Soundex::class,
+			'str_to_date' => StrToDate::class,
+			'substring_index' => SubstringIndex::class,
+			'unhex' => Unhex::class,
+			'uuid_short' => UuidShort::class,
 		];
 		$this->registerStringFunctions($configurationDefinition, $stringFunctions);
 	}
@@ -230,18 +356,18 @@ final class BeberleiBehaviorExtension extends CompilerExtension
 	private function registerOracleFunctions(ServiceDefinition $configurationDefinition): void
 	{
 		$datetimeFunctions = [
-			'day' => Oracle\Day::class,
-			'month' => Oracle\Month::class,
-			'year' => Oracle\Year::class,
-			'to_char' => Oracle\ToChar::class,
-			'trunc' => Oracle\Trunc::class,
+			'day' => \DoctrineExtensions\Query\Oracle\Day::class,
+			'month' => \DoctrineExtensions\Query\Oracle\Month::class,
+			'year' => \DoctrineExtensions\Query\Oracle\Year::class,
+			'to_char' => ToChar::class,
+			'trunc' => Trunc::class,
 		];
 		$this->registerDatetimeFunctions($configurationDefinition, $datetimeFunctions);
 
 		$stringFunctions = [
-			'nvl' => Oracle\Nvl::class,
-			'listagg' => Oracle\Listagg::class,
-			'to_date' => Oracle\ToDate::class,
+			'nvl' => Nvl::class,
+			'listagg' => Listagg::class,
+			'to_date' => ToDate::class,
 		];
 		$this->registerStringFunctions($configurationDefinition, $stringFunctions);
 	}
@@ -249,33 +375,33 @@ final class BeberleiBehaviorExtension extends CompilerExtension
 	private function registerSqliteFunctions(ServiceDefinition $configurationDefinition): void
 	{
 		$datetimeFunctions = [
-			'date' => Sqlite\Date::class,
-			'date_format' => Sqlite\DateFormat::class,
-			'day' => Sqlite\Day::class,
-			'hour' => Sqlite\Hour::class,
-			'julianday' => Sqlite\JulianDay::class,
-			'minute' => Sqlite\Minute::class,
-			'month' => Sqlite\Month::class,
-			'strftime' => Sqlite\StrfTime::class,
-			'week' => Sqlite\Week::class,
-			'weekday' => Sqlite\WeekDay::class,
-			'year' => Sqlite\Year::class,
+			'date' => \DoctrineExtensions\Query\Sqlite\Date::class,
+			'date_format' => \DoctrineExtensions\Query\Sqlite\DateFormat::class,
+			'day' => \DoctrineExtensions\Query\Sqlite\Day::class,
+			'hour' => \DoctrineExtensions\Query\Sqlite\Hour::class,
+			'julianday' => JulianDay::class,
+			'minute' => \DoctrineExtensions\Query\Sqlite\Minute::class,
+			'month' => \DoctrineExtensions\Query\Sqlite\Month::class,
+			'strftime' => StrfTime::class,
+			'week' => \DoctrineExtensions\Query\Sqlite\Week::class,
+			'weekday' => \DoctrineExtensions\Query\Sqlite\WeekDay::class,
+			'year' => \DoctrineExtensions\Query\Sqlite\Year::class,
 		];
 		$this->registerDatetimeFunctions($configurationDefinition, $datetimeFunctions);
 
 		$numericFunctions = [
-			'round' => Sqlite\Round::class,
+			'round' => \DoctrineExtensions\Query\Sqlite\Round::class,
 		];
 		$this->registerNumericFunctions($configurationDefinition, $numericFunctions);
 
 		$stringFunctions = [
-			'concat_ws' => Sqlite\ConcatWs::class,
-			'greatest' => Sqlite\Greatest::class,
-			'ifelse' => Sqlite\IfElse::class,
-			'ifnull' => Sqlite\IfNull::class,
-			'least' => Sqlite\Least::class,
-			'random' => Sqlite\Random::class,
-			'replace' => Sqlite\Replace::class,
+			'concat_ws' => \DoctrineExtensions\Query\Sqlite\ConcatWs::class,
+			'greatest' => \DoctrineExtensions\Query\Sqlite\Greatest::class,
+			'ifelse' => \DoctrineExtensions\Query\Sqlite\IfElse::class,
+			'ifnull' => \DoctrineExtensions\Query\Sqlite\IfNull::class,
+			'least' => \DoctrineExtensions\Query\Sqlite\Least::class,
+			'random' => Random::class,
+			'replace' => \DoctrineExtensions\Query\Sqlite\Replace::class,
 		];
 		$this->registerStringFunctions($configurationDefinition, $stringFunctions);
 	}
@@ -283,20 +409,20 @@ final class BeberleiBehaviorExtension extends CompilerExtension
 	private function registerPostgresqlFunctions(ServiceDefinition $configurationDefinition): void
 	{
 		$datetimeFunctions = [
-			'date_format' => Postgresql\DateFormat::class,
-			'at_time_zone' => Postgresql\AtTimeZoneFunction::class,
-			'date_part' => Postgresql\DatePart::class,
-			'extract' => Postgresql\ExtractFunction::class,
+			'date_format' => \DoctrineExtensions\Query\Postgresql\DateFormat::class,
+			'at_time_zone' => AtTimeZoneFunction::class,
+			'date_part' => DatePart::class,
+			'extract' => ExtractFunction::class,
 		];
 		$this->registerDatetimeFunctions($configurationDefinition, $datetimeFunctions);
 
 		$stringFunctions = [
-			'str_to_date' => Postgresql\StrToDate::class,
-			'count_filter' => Postgresql\CountFilterFunction::class,
-			'string_agg' => Postgresql\StringAgg::class,
-			'greatest' => Postgresql\Greatest::class,
-			'least' => Postgresql\Least::class,
-			'regexp_replace' => Postgresql\RegexpReplace::class,
+			'str_to_date' => \DoctrineExtensions\Query\Postgresql\StrToDate::class,
+			'count_filter' => CountFilterFunction::class,
+			'string_agg' => StringAgg::class,
+			'greatest' => \DoctrineExtensions\Query\Postgresql\Greatest::class,
+			'least' => \DoctrineExtensions\Query\Postgresql\Least::class,
+			'regexp_replace' => RegexpReplace::class,
 		];
 		$this->registerStringFunctions($configurationDefinition, $stringFunctions);
 	}
