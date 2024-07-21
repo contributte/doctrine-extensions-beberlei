@@ -2,18 +2,19 @@
 
 namespace Tests\Cases\DI;
 
+use Contributte\Tester\Toolkit;
 use Doctrine\ORM\Configuration;
 use Nette\DI\Compiler;
 use Nette\DI\Container;
 use Nette\DI\ContainerLoader;
 use Nettrine\Extensions\Beberlei\DI\BeberleiBehaviorExtension;
-use Ninjify\Nunjuck\Toolkit;
 use Tester\Assert;
+use Tests\Toolkit\Tests;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
 Toolkit::test(function (): void {
-	$loader = new ContainerLoader(TEMP_DIR, true);
+	$loader = new ContainerLoader(Tests::TEMP_PATH, true);
 	$class = $loader->load(static function (Compiler $compiler): void {
 		$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
 		$compiler->addDependencies([__FILE__]);
@@ -24,7 +25,7 @@ Toolkit::test(function (): void {
 });
 
 Toolkit::test(function (): void {
-	$loader = new ContainerLoader(TEMP_DIR, true);
+	$loader = new ContainerLoader(Tests::TEMP_PATH, true);
 	$class = $loader->load(static function (Compiler $compiler): void {
 		$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
 		$compiler->addDependencies([__FILE__]);
@@ -45,7 +46,7 @@ Toolkit::test(function (): void {
 });
 
 Toolkit::test(function (): void {
-	$loader = new ContainerLoader(TEMP_DIR, true);
+	$loader = new ContainerLoader(Tests::TEMP_PATH, true);
 	$class = $loader->load(static function (Compiler $compiler): void {
 		$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
 		$compiler->addDependencies([__FILE__]);
@@ -66,7 +67,7 @@ Toolkit::test(function (): void {
 });
 
 Toolkit::test(function (): void {
-	$loader = new ContainerLoader(TEMP_DIR, true);
+	$loader = new ContainerLoader(Tests::TEMP_PATH, true);
 	$class = $loader->load(static function (Compiler $compiler): void {
 		$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
 		$compiler->addDependencies([__FILE__]);
@@ -87,7 +88,7 @@ Toolkit::test(function (): void {
 });
 
 Toolkit::test(function (): void {
-	$loader = new ContainerLoader(TEMP_DIR, true);
+	$loader = new ContainerLoader(Tests::TEMP_PATH, true);
 	$class = $loader->load(static function (Compiler $compiler): void {
 		$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
 		$compiler->addDependencies([__FILE__]);
