@@ -140,56 +140,61 @@ final class BeberleiBehaviorExtension extends CompilerExtension
 	public function getConfigSchema(): Schema
 	{
 		return Expect::structure([
-			'driver' => Expect::anyOf(
-				'mysql', // mysql
-				'mysql2',
-				'pdo_mysql',
-				'oci8', // oracle
-				'pdo_oci',
-				'sqlite',
-				'sqlite3', // sqlite
-				'pdo_sqlite',
-				'pgsql', // postgre
-				'postgres',
-				'postgresql',
-				'pdo_pgsql'
-			),
-		]);
+			'connections' => Expect::arrayOf(
+				Expect::structure([
+					'driver' => Expect::anyOf(
+						'mysql', // mysql
+						'mysql2',
+						'pdo_mysql',
+						'oci8', // oracle
+						'pdo_oci',
+						'sqlite',
+						'sqlite3', // sqlite
+						'pdo_sqlite',
+						'pgsql', // postgre
+						'postgres',
+						'postgresql',
+						'pdo_pgsql'
+					),
+				])
+			)->min(1)->required()]);
 	}
 
 	public function beforeCompile(): void
 	{
 		$builder = $this->getContainerBuilder();
-		$config = $this->config;
+		$connectionsConfig = $this->config->connections;
 
-		if ($config->driver === null) {
-			return;
-		}
+		foreach ($connectionsConfig as $connection => $config) {
+			if ($config->driver === null) {
+				return;
+			}
 
-		$configurationDefinition = $builder->getDefinitionByType(Configuration::class);
-		assert($configurationDefinition instanceof ServiceDefinition);
+			$configurationDefinition = $builder->findByType(Configuration::class)['nettrine.orm.managers.' . $connection . '.configuration'];
+			assert($configurationDefinition instanceof ServiceDefinition);
 
-		switch ($config->driver) {
-			case 'mysql':
-			case 'mysql2':
-			case 'pdo_mysql':
-				$this->registerMysqlFunctions($configurationDefinition);
-				break;
-			case 'oci8':
-			case 'pdo_oci':
-				$this->registerOracleFunctions($configurationDefinition);
-				break;
-			case 'sqlite':
-			case 'sqlite3':
-			case 'pdo_sqlite':
-				$this->registerSqliteFunctions($configurationDefinition);
-				break;
-			case 'pgsql':
-			case 'postgres':
-			case 'postgresql':
-			case 'pdo_pgsql':
-				$this->registerPostgresqlFunctions($configurationDefinition);
-				break;
+			switch ($config->driver) {
+				case 'mysql':
+				case 'mysql2':
+				case 'pdo_mysql':
+					$this->registerMysqlFunctions($configurationDefinition);
+					break;
+				case 'oci8':
+				case 'pdo_oci':
+					$this->registerOracleFunctions($configurationDefinition);
+					break;
+				case 'sqlite':
+				case 'sqlite3':
+				case 'pdo_sqlite':
+					$this->registerSqliteFunctions($configurationDefinition);
+					break;
+				case 'pgsql':
+				case 'postgres':
+				case 'postgresql':
+				case 'pdo_pgsql':
+					$this->registerPostgresqlFunctions($configurationDefinition);
+					break;
+			}
 		}
 	}
 
