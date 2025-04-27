@@ -28,9 +28,36 @@ Specify the same driver as for the Doctrine DBAL connection, all of [beberlei/Do
 
 ```yaml
 nettrine.extensions.beberlei:
-    driver: mysql
-    # mysql - 'mysql', 'mysql2', 'pdo_mysql'
-    # oracle - 'oci8', 'pdo_oci'
-    # sqlite - 'sqlite', 'sqlite3', 'pdo_sqlite'
-    # postgre - 'pgsql', 'postgres', 'postgresql', 'pdo_pgsql'
+  connections:
+    default:
+      driver: mysql
+      # mysql - 'mysql', 'mysql2', 'pdo_mysql'
+      # oracle - 'oci8', 'pdo_oci'
+      # sqlite - 'sqlite', 'sqlite3', 'pdo_sqlite'
+      # postgre - 'pgsql', 'postgres', 'postgresql', 'pdo_pgsql'
 ```
+
+### Advanced configuration
+
+Here is the list of all available options with their types.
+
+ ```yaml
+nettrine.extensions.beberlei:
+  connections:
+    <name>:
+      driver: mysql
+```
+
+For example:
+
+```neon
+nettrine.extensions.beberlei:
+  connections:
+    default:
+      driver: pdo_pgsql
+
+    # Explicit configuration
+    second:
+      driver: pdo_mysql
+```
+
