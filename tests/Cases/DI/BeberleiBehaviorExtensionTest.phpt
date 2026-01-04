@@ -2,6 +2,7 @@
 
 namespace Tests\Cases\DI;
 
+use Contributte\Tester\Environment;
 use Contributte\Tester\Toolkit;
 use Contributte\Tester\Utils\Neonkit;
 use Doctrine\ORM\Configuration;
@@ -12,12 +13,12 @@ use Nettrine\DBAL\DI\DbalExtension;
 use Nettrine\Extensions\Beberlei\DI\BeberleiBehaviorExtension;
 use Nettrine\ORM\DI\OrmExtension;
 use Tester\Assert;
-use Tests\Toolkit\Tests;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-Toolkit::test(function (): void {
-	$loader = new ContainerLoader(Tests::TEMP_PATH, true);
+// MySQL
+Toolkit::test(static function (): void {
+	$loader = new ContainerLoader(Environment::getTestDir(), true);
 	$class = $loader->load(static function (Compiler $compiler): void {
 		$compiler->addExtension('nettrine.dbal', new DbalExtension());
 		$compiler->addExtension('nettrine.orm', new OrmExtension());
@@ -60,8 +61,9 @@ Toolkit::test(function (): void {
 	Assert::type(Container::class, $container);
 });
 
-Toolkit::test(function (): void {
-	$loader = new ContainerLoader(Tests::TEMP_PATH, true);
+// MySQL with configuration retrieval
+Toolkit::test(static function (): void {
+	$loader = new ContainerLoader(Environment::getTestDir(), true);
 	$class = $loader->load(static function (Compiler $compiler): void {
 		$compiler->addExtension('nettrine.dbal', new DbalExtension());
 		$compiler->addExtension('nettrine.orm', new OrmExtension());
@@ -106,8 +108,9 @@ Toolkit::test(function (): void {
 	Assert::notNull($container->getByName('nettrine.orm.managers.default.configuration'));
 });
 
-Toolkit::test(function (): void {
-	$loader = new ContainerLoader(Tests::TEMP_PATH, true);
+// Oracle
+Toolkit::test(static function (): void {
+	$loader = new ContainerLoader(Environment::getTestDir(), true);
 	$class = $loader->load(static function (Compiler $compiler): void {
 		$compiler->addExtension('nettrine.dbal', new DbalExtension());
 		$compiler->addExtension('nettrine.orm', new OrmExtension());
@@ -141,7 +144,7 @@ Toolkit::test(function (): void {
 				'connections' => [
 					'default' => [
 						'driver' => 'pdo_oci',
-					]
+					],
 				],
 			],
 		]);
@@ -153,8 +156,9 @@ Toolkit::test(function (): void {
 	Assert::notNull($container->getByName('nettrine.orm.managers.default.configuration'));
 });
 
-Toolkit::test(function (): void {
-	$loader = new ContainerLoader(Tests::TEMP_PATH, true);
+// SQLite
+Toolkit::test(static function (): void {
+	$loader = new ContainerLoader(Environment::getTestDir(), true);
 	$class = $loader->load(static function (Compiler $compiler): void {
 		$compiler->addExtension('nettrine.dbal', new DbalExtension());
 		$compiler->addExtension('nettrine.orm', new OrmExtension());
@@ -182,8 +186,8 @@ Toolkit::test(function (): void {
 				'connections' => [
 					'default' => [
 						'driver' => 'pdo_sqlite',
-					]
-				]
+					],
+				],
 			],
 		]);
 		$compiler->addDependencies([__FILE__]);
@@ -195,8 +199,9 @@ Toolkit::test(function (): void {
 	Assert::notNull($container->getByName('nettrine.orm.managers.default.configuration'));
 });
 
-Toolkit::test(function (): void {
-	$loader = new ContainerLoader(Tests::TEMP_PATH, true);
+// PostgreSQL
+Toolkit::test(static function (): void {
+	$loader = new ContainerLoader(Environment::getTestDir(), true);
 	$class = $loader->load(static function (Compiler $compiler): void {
 		$compiler->addExtension('nettrine.dbal', new DbalExtension());
 		$compiler->addExtension('nettrine.orm', new OrmExtension());
@@ -228,8 +233,8 @@ Toolkit::test(function (): void {
 				'connections' => [
 					'default' => [
 						'driver' => 'pdo_pgsql',
-					]
-				]
+					],
+				],
 			],
 		]);
 		$compiler->addDependencies([__FILE__]);
