@@ -2,13 +2,11 @@
 
 namespace Tests\Cases\DI;
 
-use Contributte\Tester\Environment;
 use Contributte\Tester\Toolkit;
+use Contributte\Tester\Utils\ContainerBuilder;
 use Contributte\Tester\Utils\Neonkit;
-use Doctrine\ORM\Configuration;
 use Nette\DI\Compiler;
 use Nette\DI\Container;
-use Nette\DI\ContainerLoader;
 use Nettrine\DBAL\DI\DbalExtension;
 use Nettrine\Extensions\Beberlei\DI\BeberleiBehaviorExtension;
 use Nettrine\ORM\DI\OrmExtension;
@@ -18,12 +16,12 @@ require_once __DIR__ . '/../../bootstrap.php';
 
 // MySQL
 Toolkit::test(static function (): void {
-	$loader = new ContainerLoader(Environment::getTestDir(), true);
-	$class = $loader->load(static function (Compiler $compiler): void {
-		$compiler->addExtension('nettrine.dbal', new DbalExtension());
-		$compiler->addExtension('nettrine.orm', new OrmExtension());
-		$compiler->addConfig(Neonkit::load(
-			<<<'NEON'
+	$container = ContainerBuilder::of()
+		->withCompiler(static function (Compiler $compiler): void {
+			$compiler->addExtension('nettrine.dbal', new DbalExtension());
+			$compiler->addExtension('nettrine.orm', new OrmExtension());
+			$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
+			$compiler->addConfig(Neonkit::load(<<<'NEON'
 				nettrine.dbal:
 					connections:
 						default:
@@ -42,33 +40,27 @@ Toolkit::test(static function (): void {
 								App:
 									directories: [App/Database]
 									namespace: App\Database
-				NEON
-		));
-		$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
-		$compiler->addConfig([
-			'nettrine.extensions.beberlei' => [
-				'connections' => [
-					'default' => [
-						'driver' => 'pdo_mysql',
-					],
-				],
-			],
-		]);
-		$compiler->addDependencies([__FILE__]);
-	}, 1);
 
-	$container = new $class();
+				nettrine.extensions.beberlei:
+					connections:
+						default:
+							driver: pdo_mysql
+			NEON
+			));
+		})
+		->build();
+
 	Assert::type(Container::class, $container);
 });
 
 // MySQL with configuration retrieval
 Toolkit::test(static function (): void {
-	$loader = new ContainerLoader(Environment::getTestDir(), true);
-	$class = $loader->load(static function (Compiler $compiler): void {
-		$compiler->addExtension('nettrine.dbal', new DbalExtension());
-		$compiler->addExtension('nettrine.orm', new OrmExtension());
-		$compiler->addConfig(Neonkit::load(
-			<<<'NEON'
+	$container = ContainerBuilder::of()
+		->withCompiler(static function (Compiler $compiler): void {
+			$compiler->addExtension('nettrine.dbal', new DbalExtension());
+			$compiler->addExtension('nettrine.orm', new OrmExtension());
+			$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
+			$compiler->addConfig(Neonkit::load(<<<'NEON'
 				nettrine.dbal:
 					connections:
 						default:
@@ -87,35 +79,28 @@ Toolkit::test(static function (): void {
 								App:
 									directories: [App/Database]
 									namespace: App\Database
-				NEON
-		));
-		$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
-		$compiler->addConfig([
-			'nettrine.extensions.beberlei' => [
-				'connections' => [
-					'default' => [
-						'driver' => 'pdo_mysql',
-					],
-				],
-			],
-		]);
-		$compiler->addDependencies([__FILE__]);
-	}, 2);
 
-	$container = new $class();
+				nettrine.extensions.beberlei:
+					connections:
+						default:
+							driver: pdo_mysql
+			NEON
+			));
+		})
+		->build();
+
 	Assert::type(Container::class, $container);
-
 	Assert::notNull($container->getByName('nettrine.orm.managers.default.configuration'));
 });
 
 // Oracle
 Toolkit::test(static function (): void {
-	$loader = new ContainerLoader(Environment::getTestDir(), true);
-	$class = $loader->load(static function (Compiler $compiler): void {
-		$compiler->addExtension('nettrine.dbal', new DbalExtension());
-		$compiler->addExtension('nettrine.orm', new OrmExtension());
-		$compiler->addConfig(Neonkit::load(
-			<<<'NEON'
+	$container = ContainerBuilder::of()
+		->withCompiler(static function (Compiler $compiler): void {
+			$compiler->addExtension('nettrine.dbal', new DbalExtension());
+			$compiler->addExtension('nettrine.orm', new OrmExtension());
+			$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
+			$compiler->addConfig(Neonkit::load(<<<'NEON'
 				nettrine.dbal:
 					connections:
 						default:
@@ -132,38 +117,28 @@ Toolkit::test(static function (): void {
 								App:
 									directories: [App/Database]
 									namespace: App\Database
-				NEON
-		));
-		$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
-		$compiler->addDependencies([__FILE__]);
-		$compiler->addConfig([
-			'services' => [
-				Configuration::class,
-			],
-			'nettrine.extensions.beberlei' => [
-				'connections' => [
-					'default' => [
-						'driver' => 'pdo_oci',
-					],
-				],
-			],
-		]);
-	}, 3);
 
-	$container = new $class();
+				nettrine.extensions.beberlei:
+					connections:
+						default:
+							driver: pdo_oci
+			NEON
+			));
+		})
+		->build();
+
 	Assert::type(Container::class, $container);
-
 	Assert::notNull($container->getByName('nettrine.orm.managers.default.configuration'));
 });
 
 // SQLite
 Toolkit::test(static function (): void {
-	$loader = new ContainerLoader(Environment::getTestDir(), true);
-	$class = $loader->load(static function (Compiler $compiler): void {
-		$compiler->addExtension('nettrine.dbal', new DbalExtension());
-		$compiler->addExtension('nettrine.orm', new OrmExtension());
-		$compiler->addConfig(Neonkit::load(
-			<<<'NEON'
+	$container = ContainerBuilder::of()
+		->withCompiler(static function (Compiler $compiler): void {
+			$compiler->addExtension('nettrine.dbal', new DbalExtension());
+			$compiler->addExtension('nettrine.orm', new OrmExtension());
+			$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
+			$compiler->addConfig(Neonkit::load(<<<'NEON'
 				nettrine.dbal:
 					connections:
 						default:
@@ -178,35 +153,28 @@ Toolkit::test(static function (): void {
 								App:
 									directories: [App/Database]
 									namespace: App\Database
-				NEON
-		));
-		$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
-		$compiler->addConfig([
-			'nettrine.extensions.beberlei' => [
-				'connections' => [
-					'default' => [
-						'driver' => 'pdo_sqlite',
-					],
-				],
-			],
-		]);
-		$compiler->addDependencies([__FILE__]);
-	}, 4);
 
-	$container = new $class();
+				nettrine.extensions.beberlei:
+					connections:
+						default:
+							driver: pdo_sqlite
+			NEON
+			));
+		})
+		->build();
+
 	Assert::type(Container::class, $container);
-
 	Assert::notNull($container->getByName('nettrine.orm.managers.default.configuration'));
 });
 
 // PostgreSQL
 Toolkit::test(static function (): void {
-	$loader = new ContainerLoader(Environment::getTestDir(), true);
-	$class = $loader->load(static function (Compiler $compiler): void {
-		$compiler->addExtension('nettrine.dbal', new DbalExtension());
-		$compiler->addExtension('nettrine.orm', new OrmExtension());
-		$compiler->addConfig(Neonkit::load(
-			<<<'NEON'
+	$container = ContainerBuilder::of()
+		->withCompiler(static function (Compiler $compiler): void {
+			$compiler->addExtension('nettrine.dbal', new DbalExtension());
+			$compiler->addExtension('nettrine.orm', new OrmExtension());
+			$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
+			$compiler->addConfig(Neonkit::load(<<<'NEON'
 				nettrine.dbal:
 					connections:
 						default:
@@ -225,23 +193,16 @@ Toolkit::test(static function (): void {
 								App:
 									directories: [App/Database]
 									namespace: App\Database
-				NEON
-		));
-		$compiler->addExtension('nettrine.extensions.beberlei', new BeberleiBehaviorExtension());
-		$compiler->addConfig([
-			'nettrine.extensions.beberlei' => [
-				'connections' => [
-					'default' => [
-						'driver' => 'pdo_pgsql',
-					],
-				],
-			],
-		]);
-		$compiler->addDependencies([__FILE__]);
-	}, 5);
 
-	$container = new $class();
+				nettrine.extensions.beberlei:
+					connections:
+						default:
+							driver: pdo_pgsql
+			NEON
+			));
+		})
+		->build();
+
 	Assert::type(Container::class, $container);
-
 	Assert::notNull($container->getByName('nettrine.orm.managers.default.configuration'));
 });
