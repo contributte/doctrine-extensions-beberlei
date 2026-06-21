@@ -18,17 +18,7 @@
 Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
 </p>
 
-## Usage
-
-To install latest version of `nettrine/extensions-beberlei` use [Composer](https://getcomposer.org).
-
-```
-$ composer require nettrine/extensions-beberlei
-```
-
-## Documentation
-
-For details on how to use this package, check out our [documentation](.docs).
+Doctrine ([beberlei/DoctrineExtensions](https://github.com/beberlei/DoctrineExtensions)) extension for Nette Framework.
 
 ## Versions
 
@@ -36,6 +26,60 @@ For details on how to use this package, check out our [documentation](.docs).
 |-------------|---------|----------|-------|---------|
 | dev         | `^0.4`  | `master` | 3.3+  | `>=8.2` |
 | stable      | `^0.3`  | `master` | 3.3+  | `>=8.2` |
+
+## Installation
+
+To install latest version of `nettrine/extensions-beberlei` use [Composer](https://getcomposer.org).
+
+```bash
+composer require nettrine/extensions-beberlei
+```
+
+Register extension.
+
+```yaml
+extensions:
+    nettrine.extensions.beberlei: Nettrine\Extensions\Beberlei\DI\BeberleiBehaviorExtension
+```
+
+## Configuration
+
+Specify the same driver as for the Doctrine DBAL connection. All [beberlei/DoctrineExtensions](https://github.com/beberlei/DoctrineExtensions) custom DQL functions for the given driver will be registered.
+
+```yaml
+nettrine.extensions.beberlei:
+    connections:
+        default:
+            driver: mysql
+            # mysql - 'mysql', 'mysql2', 'pdo_mysql'
+            # oracle - 'oci8', 'pdo_oci'
+            # sqlite - 'sqlite', 'sqlite3', 'pdo_sqlite'
+            # postgre - 'pgsql', 'postgres', 'postgresql', 'pdo_pgsql'
+```
+
+### Advanced configuration
+
+Here is the list of all available options with their types.
+
+```yaml
+nettrine.extensions.beberlei:
+    connections:
+        <name>:
+            driver: mysql
+```
+
+For example:
+
+```neon
+nettrine.extensions.beberlei:
+    connections:
+        default:
+            driver: pdo_pgsql
+
+        # Explicit configuration
+        second:
+            driver: pdo_mysql
+```
 
 ## Development
 
